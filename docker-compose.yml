@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  thirdweb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3005:3005"
+    cpus: 0.5
+    restart: always
+    environment:
+      - ENCRYPTION_PASSWORD=${ENCRYPTION_PASSWORD}
+      - THIRDWEB_API_SECRET_KEY=${THIRDWEB_API_SECRET_KEY}
+      - ADMIN_WALLET_ADDRESS=${ADMIN_WALLET_ADDRESS}
+      - POSTGRES_CONNECTION_URL=${POSTGRES_CONNECTION_URL}
+      - ENABLE_HTTPS=true
+      - DB_POOL_MAX=10
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

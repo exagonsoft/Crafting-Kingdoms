@@ -1,0 +1,425 @@
+
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 1rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+.main {
+  max-width: 1440px;
+  padding: 5rem 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.gradientText0 {
+  background: -webkit-linear-gradient(#bfa3da, #84309c, #c735b0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradientText1 {
+  background: -webkit-linear-gradient(#a79af9, #7aa8d2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradientText2 {
+  background: -webkit-linear-gradient(#bfa3da, #743f93);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradientText3 {
+  background: -webkit-linear-gradient(#c35ab1, #e9a8d9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+  text-decoration-color: #84309c;
+}
+
+.title {
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title,
+.description {
+  text-align: left;
+}
+
+.connect {
+  margin-bottom: 2rem;
+}
+
+.description {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.code {
+  background: #555;
+  border-radius: 5px;
+  padding: 0.5em;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #131313;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  max-width: 440px;
+  overflow: none;
+  border: none;
+  padding: 1rem;
+}
+
+.cardText {
+  padding: 1rem;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 12px;
+  border: none;
+}
+
+/* .card:hover,
+.card:focus,
+.card:active {
+  background-color: #272c34;
+  opacity: 80%;
+} */
+
+.card h2 {
+  margin: 0 0 0.75rem 0;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.logo {
+  height: 1em;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-left: 0;
+  }
+
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 3rem;
+    line-height: 1.15;
+  }
+}
+
+.card,
+.footer {
+  border-color: #222;
+}
+
+.logo img {
+  filter: invert(1);
+}
+
+/*----------------NEW STYLES-----------------*/
+.full_with{
+  width: 100%;
+}
+
+.half_width{
+  width: 50%;
+}
+
+.third_with{
+  width: 33%;
+}
+
+.layout_container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 2rem;
+}
+
+.card_images{
+  border-radius: 10px;
+  width: 120px !important;
+  height: 120px !important;
+}
+
+.card_text{
+  font-weight: bold;
+}
+
+.card_text_container{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 1rem;
+}
+
+.card_text_container > p {
+  display: flex;
+  margin-block: 0;
+}
+
+.main_layout{
+  width: 94%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  justify-self: center;
+  gap: 4rem;
+}
+
+.logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.logo > span:nth-child(1) {
+  font-size: 1.3rem;
+}
+
+.logo > span:nth-child(2) {
+  font-size: 1rem;
+}
+
+.headers {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(89, 170, 8);
+}
+
+.headers>img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.headers_login {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  align-items: center;
+}
+
+.headers_login>img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.navbarOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+
+.navbarOptions p {
+  display: flex;
+  gap: .5rem;
+  margin: 0;
+  font-size: 0.9 rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.navbarOptions > p > div{
+  display: flex;
+  gap: .2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarOptions > p > div > img{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.navbarOptions Link {
+  margin: 0;
+  font-size: 0.9 rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.navbarLogoutButton {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: crimson;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navbarLogoutButton:hover {
+  background-color: #ff6b6b;
+}
+
+.signinContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #131313;
+  padding: 2rem;
+  border-radius: 10px;
+  min-width: 500px;
+}
+
+.signinContainer input {
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #272c34;
+  color: white;
+}
+
+.submitButton {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: royalblue;
+  width: 100%;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.workerContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  background-color: #131313;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.workerContainer div {
+  margin: 0 1rem;
+}
+
+.businessContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #131313;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 10px;
+  width: 100%;
+}
+
+.building_texts{
+  padding: 0 1rem;
+}
+
+.nftCard {
+  background-color: #131313;
+  border-radius: 10px;
+  max-width: 440px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.nftCardButton {
+  width: 100% !important;
+  padding: 0.5rem !important;
+  border-radius: 0px 0px 5px 5px !important;
+  border: none !important;
+  background-color: royalblue !important;
+  color: white !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s !important;
+}
+
+.nftCardButton:hover {
+  background-color: #3b82f6 !important;
+}
+
+.nftCardButton:disabled {
+  background-color: #272c34 !important;
+  cursor: not-allowed !important;
+}
+
