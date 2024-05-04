@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: false,
   basePath: "",
+  eslint: {
+    dirs: ['utils'],
+  },
 };
 
 module.exports = nextConfig;
