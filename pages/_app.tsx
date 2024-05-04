@@ -9,11 +9,9 @@ import { Sepolia } from "@thirdweb-dev/chains";
 import { getEnvironment } from "../config/configs";
 import NavBar from "../components/NavBar";
 import styles from "../styles/Home.module.css";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // const ethers = require("ethers");
-  // console.log(ethers.Wallet.createRandom().privateKey);
-
   return (
     <ThirdwebProvider
       clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
@@ -31,7 +29,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     >
       <div className={styles.main_layout}>
         <NavBar />
-        <Component {...pageProps} />
+        <div className={styles.main_container}>
+          <Component {...pageProps} />
+        </div>
+        <Footer />
       </div>
     </ThirdwebProvider>
   );

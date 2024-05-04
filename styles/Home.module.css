@@ -1,5 +1,3 @@
-
-
 .container {
   width: 100%;
   max-width: 1440px;
@@ -16,10 +14,11 @@
   max-width: 1440px;
   padding: 5rem 0;
   margin: 0 auto;
-  display: flex;
+  display: contents;
   flex-direction: column;
   justify-content: center;
   align-items: left;
+  gap: 2rem;
 }
 
 .gradientText0 {
@@ -87,9 +86,33 @@
 
 .grid {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+.grid_containers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-row-gap: 5rem;
+  grid-column-gap: 2rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.grid_loading_container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading_image {
+  width: 60%;
+  height: 20rem;
+  align-self: center;
+  opacity: 1;
+  border-radius: 500%;
 }
 
 .card {
@@ -166,37 +189,57 @@
 }
 
 /*----------------NEW STYLES-----------------*/
-.full_with{
+.full_with {
   width: 100%;
 }
 
-.half_width{
+.half_width {
   width: 50%;
 }
 
-.third_with{
+.third_with {
   width: 33%;
 }
 
-.layout_container{
+.full_centered {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.section_title {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.layout_container {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   gap: 2rem;
 }
 
-.card_images{
+.card_images {
   border-radius: 10px;
   width: 120px !important;
   height: 120px !important;
 }
 
-.card_text{
+.nft_card_images {
+  object-fit: fill !important;
+  width: 100% !important;
+}
+
+.card_text {
   font-weight: bold;
 }
 
-.card_text_container{
+.card_text_container {
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -205,13 +248,14 @@
   padding-top: 1rem;
 }
 
-.card_text_container > p {
+.card_text_container>p {
   display: flex;
   margin-block: 0;
 }
 
-.main_layout{
-  width: 94%;
+.main_layout {
+  width: 100%;
+  padding: 0 4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -220,7 +264,12 @@
   gap: 4rem;
 }
 
-.logo{
+.main_container {
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.logo {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -228,11 +277,11 @@
   font-weight: bold;
 }
 
-.logo > span:nth-child(1) {
+.logo>span:nth-child(1) {
   font-size: 1.3rem;
 }
 
-.logo > span:nth-child(2) {
+.logo>span:nth-child(2) {
   font-size: 1rem;
 }
 
@@ -268,10 +317,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  position: fixed;
+  left: 8rem;
+  right: 8rem;
+  background: rgba(255, 255, 255, 0.15);
+  /* Translucent white background */
+  backdrop-filter: blur(10px);
+  /* Blur effect */
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* Transparent white border */
+  overflow: hidden;
+  /* Clip content inside the div */
+  margin-top: .4rem;
+  backdrop-filter: blur(10px) saturate(150%);
+  transition: transform 0.5s ease;
 }
 
 .navbarOptions {
@@ -294,24 +358,25 @@
   transition: color 0.3s;
 }
 
-.navbarOptions > p > div{
+.navbarOptions>p>div {
   display: flex;
   gap: .2rem;
   justify-content: center;
   align-items: center;
 }
 
-.navbarOptions > p > div > img{
+.navbarOptions>p>div>img {
   width: 15px;
   height: 15px;
   border-radius: 50%;
 }
 
-.navbarOptions Link {
+.navbarOptions a {
   margin: 0;
   font-size: 0.9 rem;
   font-weight: bold;
-  color: white;
+  color: #54e21c;
+  text-shadow: 0 0 2px #63fc26b9, 0 0 4px #63fc26b9;
   cursor: pointer;
 }
 
@@ -385,10 +450,10 @@
   padding: 2rem;
   border-radius: 10px;
   margin: 10px;
-  width: 100%;
+  width: 60%;
 }
 
-.building_texts{
+.building_texts {
   padding: 0 1rem;
 }
 
@@ -399,8 +464,10 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
+  justify-items: center;
   align-items: flex-start;
+  min-height: 28rem;
 }
 
 .nftCardButton {
@@ -423,3 +490,48 @@
   cursor: not-allowed !important;
 }
 
+.footer_container {
+  width: 100%;
+  display: flex;
+  padding: 1rem 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.glassmorphism {
+  width: 300px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.15);
+  /* Translucent white background */
+  backdrop-filter: blur(10px);
+  /* Blur effect */
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* Transparent white border */
+  overflow: hidden;
+  /* Clip content inside the div */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  /* Shadow effect */
+  backdrop-filter: blur(10px) saturate(150%);
+  transition: transform 0.5s ease;
+}
+
+.glassmorphism:hover {
+  transform: scale(1.05);
+  /* Scale up on hover */
+}
+
+.neon-text {
+  color: #00FFFF; /* Light blue color */
+  text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF, 0 0 150px #00FFFF; /* Neon glow effect */
+  animation: neon-animation 1.5s ease-in-out infinite alternate; /* Neon animation */
+}
+
+@keyframes neon-animation {
+  from {
+      text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF, 0 0 150px #00FFFF; /* Neon glow effect */
+  }
+  to {
+      text-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF, 0 0 150px #00FFFF, 0 0 300px #00FFFF; /* Neon glow effect */
+  }
+}

@@ -3,6 +3,7 @@ import {
   useAddress,
   useContract,
   useTokenBalance,
+  useUser,
 } from "@thirdweb-dev/react";
 import React from "react";
 import styles from "../styles/Home.module.css";
@@ -16,17 +17,15 @@ const NavBar = () => {
   const address = useAddress();
   const { contract: tokenContract } = useContract(TOKEN_CONTRACT_ADDRESS);
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
-
-  console.log(tokenBalance);
-  
+  const { isLoggedIn, isLoading } = useUser();
 
   const _displayBalance = (num: string) => {
-    return num.slice(0, 6);
+    return num.slice(0, 4);
   };
 
   return (
     <div className={styles.full_with}>
-      {address && (
+      {isLoggedIn && (
         <div className={styles.navbarContainer}>
           <Link href="/">
             <div className={styles.headers}>

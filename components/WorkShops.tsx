@@ -20,14 +20,23 @@ const WorkShops = () => {
           <h3 className="">WorkShops</h3>
           <div className={styles.grid}>
             {stakedTokens && stakedTokens[0].length > 0 ? (
-              stakedTokens[0].map((stakedToken: BigNumber) => <WorkShopCard key={stakedToken.toString()} tokenId={stakedToken.toNumber()}/>)
+              stakedTokens[0].map((stakedToken: BigNumber) => (
+                <WorkShopCard
+                  key={stakedToken.toString()}
+                  tokenId={stakedToken.toNumber()}
+                />
+              ))
             ) : (
               <p>No WorkShops Owned.</p>
             )}
           </div>
         </>
       ) : (
-        <p>Loading WorkShops...</p>
+        <img
+          src="/images/loading.gif"
+          alt=""
+          className={styles.loading_image}
+        />
       )}
     </div>
   );

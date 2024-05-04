@@ -5,6 +5,12 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Inter", sans-serif;
+  scrollbar-width: 0;
+}
+
+body::-webkit-scrollbar{
+  display: none;
+  width: 0;
 }
 
 h4 {

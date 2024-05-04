@@ -23,7 +23,7 @@ const Lord = () => {
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
 
   const _displayBalance = (num: string) => {
-    return num.slice(0, 6);
+    return num.slice(0, 4);
   };
 
   return (
@@ -52,7 +52,7 @@ const Lord = () => {
           </div>
         ))
       ) : (
-        <p>Loading lord...</p>
+        <img src="/images/loading.gif" alt="" className={styles.loading_image} />
       )}
     </div>
   );
