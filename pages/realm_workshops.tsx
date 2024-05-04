@@ -22,14 +22,14 @@ const RealmWorkshops = () => {
 
   return (
     <div className={styles.main}>
-      <h3>Build a WorkShop</h3>
-      <div className={styles.grid}>
+      <h2 className={styles.section_title} >Available Buildings</h2>
+      <div className={!workshops || workshops.length < 0 ? styles.grid_loading_container : styles.grid_containers}>
         {workshops && workshops.length > 0 ? (
           workshops.map((workshop) => (
             <RealmWorkShopCard key={workshop.metadata.id} building={workshop} />
           ))
         ) : (
-          <p>No Workshops Owned.</p>
+          <img src="/images/loading.gif" alt="" className={styles.loading_image} />
         )}
       </div>
     </div>
