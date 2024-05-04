@@ -64,7 +64,7 @@ const RealmWorkShopCard = ({ building }: Props) => {
 
   return (
     <div className={styles.nftCard}>
-      <MediaRenderer src={building.metadata.image} />
+      <MediaRenderer src={building.metadata.image} className={styles.nft_card_images}/>
       <div className={styles.building_texts}>
         <h4>{building.metadata.name}</h4>
         {claimConditions &&

@@ -57,7 +57,7 @@ const WorkShopCard = ({ tokenId }: Props) => {
 
   return (
     <div className={styles.nftCard}>
-      <MediaRenderer src={workShopNft?.metadata.image} />
+      <MediaRenderer src={workShopNft?.metadata.image} className={styles.nft_card_images}/>
       <div className="">
         <h4>{workShopNft?.metadata.name}</h4>
         {workShopRewards && workShopRewards[1].gt(0) && (
