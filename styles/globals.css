@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @font-face {
   font-family: 'CustomFont';
-  src: url('../styles//fonts/Enchanted\ Land.otf') format('truetype');
+  src: url('../styles/fonts/Enchanted\ Land.otf') format('truetype');
   /* Add other font properties as needed */
 }
 
@@ -29,8 +29,12 @@ h4 {
 }
 
 a {
-  color: #84309c;
+  color: white;
   text-decoration: none;
+}
+
+a :hover{
+  color: #29f317;
 }
 
 * {
