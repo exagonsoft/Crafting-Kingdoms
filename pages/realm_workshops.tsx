@@ -5,6 +5,8 @@ import { getUser } from "./api/auth/[...thirdweb]";
 import { BUILDINGS_CONTRACT_ADDRESS } from "../constants/contracts";
 import styles from "../styles/Home.module.css";
 import RealmWorkShopCard from "../components/RealmWorkShopCard";
+import MainWrapper from "../containers/MainWrapper";
+import LoadingAnimation from "../components/LoadingAnimator";
 
 const RealmWorkshops = () => {
   const { isLoggedIn, isLoading } = useUser();
@@ -21,18 +23,29 @@ const RealmWorkshops = () => {
   }, [isLoggedIn, isLoading, router]);
 
   return (
-    <div className={styles.main}>
-      <h2 className={styles.section_title} >Available Buildings</h2>
-      <div className={!workshops || workshops.length < 0 ? styles.grid_loading_container : styles.grid_containers}>
-        {workshops && workshops.length > 0 ? (
-          workshops.map((workshop) => (
-            <RealmWorkShopCard key={workshop.metadata.id} building={workshop} />
-          ))
-        ) : (
-          <img src="/images/loading.gif" alt="" className={styles.loading_image} />
-        )}
+    <MainWrapper>
+      <div className={styles.workshops_layout_container}>
+        <h2 className={styles.section_title}>Available Buildings</h2>
+        <div
+          className={
+            !workshops || workshops.length < 0
+              ? styles.grid_loading_container
+              : styles.grid_containers
+          }
+        >
+          {workshops && workshops.length > 0 ? (
+            workshops.map((workshop) => (
+              <RealmWorkShopCard
+                key={workshop.metadata.id}
+                building={workshop}
+              />
+            ))
+          ) : (
+            <LoadingAnimation />
+          )}
+        </div>
       </div>
-    </div>
+    </MainWrapper>
   );
 };
 

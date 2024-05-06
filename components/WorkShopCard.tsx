@@ -57,15 +57,21 @@ const WorkShopCard = ({ tokenId }: Props) => {
 
   return (
     <div className={styles.nftCard}>
-      <MediaRenderer src={workShopNft?.metadata.image} className={styles.nft_card_images}/>
-      <div className="">
+      <div className={styles.nft_card_ui}></div>
+      <MediaRenderer
+        src={workShopNft?.metadata.image}
+        className={styles.nft_card_images}
+      />
+      <div className={styles.building_texts}>
         <h4>{workShopNft?.metadata.name}</h4>
-        {workShopRewards && workShopRewards[1].gt(0) && (
-          <p>Qty: {workShopRewards[0].toNumber()}</p>
-        )}
-        {claimableRewards && (
-          <p>Earnings: {truncateRevenue(claimableRewards as BigNumber)}</p>
-        )}
+        <div className={styles.owned_buildings_text_info_container}>
+          {workShopRewards && workShopRewards[1].gt(0) && (
+            <span>Qty: {workShopRewards[0].toNumber()}</span>
+          )}
+          {claimableRewards && (
+            <span>Earnings: {truncateRevenue(claimableRewards as BigNumber)}</span>
+          )}
+        </div>
       </div>
       <Web3Button
         contractAddress={STAKING_CONTRACT_ADDRESS}

@@ -4,6 +4,7 @@ import { STAKING_CONTRACT_ADDRESS } from "../constants/contracts";
 import styles from "../styles/Home.module.css";
 import { BigNumber } from "ethers";
 import WorkShopCard from "./WorkShopCard";
+import LoadingAnimation from "./LoadingAnimator";
 
 const WorkShops = () => {
   const address = useAddress();
@@ -32,11 +33,7 @@ const WorkShops = () => {
           </div>
         </>
       ) : (
-        <img
-          src="/images/loading.gif"
-          alt=""
-          className={styles.loading_image}
-        />
+        <LoadingAnimation />
       )}
     </div>
   );

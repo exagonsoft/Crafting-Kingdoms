@@ -10,6 +10,7 @@ import { getEnvironment } from "../config/configs";
 import NavBar from "../components/NavBar";
 import styles from "../styles/Home.module.css";
 import Footer from "../components/Footer";
+import React from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -28,11 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       }}
     >
       <div className={styles.main_layout}>
-        <NavBar />
-        <div className={styles.main_container}>
-          <Component {...pageProps} />
-        </div>
-        <Footer />
+        <Component {...pageProps} />
       </div>
     </ThirdwebProvider>
   );
