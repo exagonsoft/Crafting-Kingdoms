@@ -2,26 +2,44 @@ import {
   ConnectWallet,
   useAddress,
   useContract,
+  useShowConnectEmbed,
   useTokenBalance,
   useUser,
 } from "@thirdweb-dev/react";
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import {
   ACCOUNT_FACTORY_CONTRACT_ADDRESS,
   TOKEN_CONTRACT_ADDRESS,
 } from "../constants/contracts";
+import { useRouter } from "next/router";
 
 const NavBar = () => {
   const address = useAddress();
+  const showConnectEmbed = useShowConnectEmbed();
   const { contract: tokenContract } = useContract(TOKEN_CONTRACT_ADDRESS);
   const { data: tokenBalance } = useTokenBalance(tokenContract, address);
   const { isLoggedIn, isLoading } = useUser();
+  const router = useRouter();
 
   const _displayBalance = (num: string) => {
     return num.slice(0, 4);
   };
+
+  useEffect(() => {
+    if (!isLoggedIn && !isLoading) {
+      router.push("/login");
+    }
+  }, [isLoggedIn, isLoading, router]);
+
+  useEffect(() => {
+    console.log({isLoggedIn, isLoading, showConnectEmbed});
+    
+    if((isLoggedIn && showConnectEmbed) || !isLoggedIn){
+      router.push("/login");
+    }
+  }, [showConnectEmbed, isLoading]);
 
   return (
     <div className={styles.full_with}>
@@ -54,7 +72,7 @@ const NavBar = () => {
                 </div>
               </p>
             )}
-            <ConnectWallet />
+            <ConnectWallet className="web3_component"/>
           </div>
         </div>
       )}

@@ -85,6 +85,7 @@
 }
 
 .grid {
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -573,10 +574,11 @@
   border-radius: 0px 0 9px 9px;
   margin-block: 0;
   box-shadow: inset -1px -4px 4px 0px;
+  min-height: 4.4rem;
 }
 
 .nftCard {
-  border-radius: 10px;
+  border-radius: 40px;
   max-width: 440px;
   overflow: hidden;
   display: flex;
@@ -587,6 +589,7 @@
   min-height: 30rem;
   min-width: 300px;
   position: relative;
+  box-shadow: 4px 4px 10px;
 }
 
 .nftCardButton {

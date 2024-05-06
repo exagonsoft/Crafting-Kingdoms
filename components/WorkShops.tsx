@@ -6,7 +6,7 @@ import { BigNumber } from "ethers";
 import WorkShopCard from "./WorkShopCard";
 import LoadingAnimation from "./LoadingAnimator";
 
-const WorkShops = () => {
+const WorkShops = ({onEarningsClaimed, setBusy}) => {
   const address = useAddress();
   const { contract: stakingContract } = useContract(STAKING_CONTRACT_ADDRESS);
   const { data: stakedTokens, isLoading: loadingWorkShops } = useContractRead(
@@ -18,13 +18,15 @@ const WorkShops = () => {
     <div className={styles.businessContainer}>
       {!loadingWorkShops ? (
         <>
-          <h3 className="">WorkShops</h3>
+          <h3 className="" style={{width:'100%', display:'flex', justifyContent:'center', alignItems:'center'}}>WorkShops</h3>
           <div className={styles.grid}>
             {stakedTokens && stakedTokens[0].length > 0 ? (
               stakedTokens[0].map((stakedToken: BigNumber) => (
                 <WorkShopCard
                   key={stakedToken.toString()}
                   tokenId={stakedToken.toNumber()}
+                  claimEarnings={onEarningsClaimed}
+                  onBusy={setBusy}
                 />
               ))
             ) : (
