@@ -3,21 +3,28 @@ import {
   useAddress,
   useClaimConditions,
   useContract,
+  useTokenBalance,
 } from "@thirdweb-dev/react";
 import { NFT, toEther } from "@thirdweb-dev/sdk";
 import React, { useState } from "react";
 import {
   BUILDINGS_CONTRACT_ADDRESS,
   STAKING_CONTRACT_ADDRESS,
+  TOKEN_CONTRACT_ADDRESS,
 } from "../constants/contracts";
 import styles from "../styles/Home.module.css";
 
 type Props = {
   building: NFT;
+  showDialog
+  setIsBusy;
 };
 
-const RealmWorkShopCard = ({ building }: Props) => {
+const RealmWorkShopCard = ({ building, showDialog, setIsBusy }: Props) => {
   const address = useAddress();
+  const { contract: tokenContract } = useContract(TOKEN_CONTRACT_ADDRESS);
+  const { data: tokenBalance } = useTokenBalance(tokenContract, address);
+
   const { contract: buildingContract } = useContract(
     BUILDINGS_CONTRACT_ADDRESS,
     "edition-drop"
@@ -37,24 +44,37 @@ const RealmWorkShopCard = ({ building }: Props) => {
 
   const handleClaim = async () => {
     if (!address) return;
+
     setClaimState("nftClaim");
     try {
-      await buildingContract?.erc1155.claim(building?.metadata.id, 1);
-      setClaimState("staking");
+      const _claimPrice = claimConditions?.map((condition) => {
+        if (condition.price) {
+          return condition.price;
+        }
+      });
+      if (tokenBalance?.value! >= _claimPrice![0]!) {
+        setIsBusy(true);
+        await buildingContract?.erc1155.claim(building?.metadata.id, 1);
+        setClaimState("staking");
 
-      const isApproved = await buildingContract?.isApproved(
-        address,
-        STAKING_CONTRACT_ADDRESS
-      );
-
-      if (!isApproved) {
-        await buildingContract?.setApprovalForAll(
-          STAKING_CONTRACT_ADDRESS,
-          true
+        const isApproved = await buildingContract?.isApproved(
+          address,
+          STAKING_CONTRACT_ADDRESS
         );
-      }
 
-      await stakingContract?.call("stake", [building?.metadata.id, 1]);
+        if (!isApproved) {
+          await buildingContract?.setApprovalForAll(
+            STAKING_CONTRACT_ADDRESS,
+            true
+          );
+        }
+
+        await stakingContract?.call("stake", [building?.metadata.id, 1]);
+        setIsBusy(false);
+        showDialog('Success', 'You have successfully build your workshop!!');
+      } else {
+        showDialog('Error', 'Insufficient founds!!');
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -82,7 +102,11 @@ const RealmWorkShopCard = ({ building }: Props) => {
                 <div className="">
                   <span>
                     {toEther(condition.price)}{" "}
-                    <img src="/images/coin.png" alt="" className={styles.coin_image}/>
+                    <img
+                      src="/images/coin.png"
+                      alt=""
+                      className={styles.coin_image}
+                    />
                     {condition.currencyMetadata.symbol}
                   </span>
                 </div>
@@ -96,7 +120,11 @@ const RealmWorkShopCard = ({ building }: Props) => {
                     {calculateBuildingEarnings(
                       parseInt(toEther(condition.price))
                     )}{" "}
-                    <img src="/images/coin.png" alt="" className={styles.coin_image}/>
+                    <img
+                      src="/images/coin.png"
+                      alt=""
+                      className={styles.coin_image}
+                    />
                     {condition.currencyMetadata.symbol}
                   </span>
                 </div>

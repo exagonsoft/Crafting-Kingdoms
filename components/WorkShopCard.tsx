@@ -1,5 +1,6 @@
 import {
   MediaRenderer,
+  SmartContract,
   Web3Button,
   toEther,
   useAddress,
@@ -12,14 +13,17 @@ import {
   BUILDINGS_CONTRACT_ADDRESS,
   STAKING_CONTRACT_ADDRESS,
 } from "../constants/contracts";
-import { BigNumber } from "ethers";
+import { BaseContract, BigNumber } from "ethers";
 import styles from "../styles/Home.module.css";
+import Dialog from "./Dialog";
 
 type Props = {
   tokenId: number;
+  claimEarnings;
+  onBusy;
 };
 
-const WorkShopCard = ({ tokenId }: Props) => {
+const WorkShopCard = ({ tokenId, claimEarnings, onBusy }: Props) => {
   const address = useAddress();
   const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
   const { contract: workShopContract } = useContract(
@@ -32,6 +36,11 @@ const WorkShopCard = ({ tokenId }: Props) => {
     "getStakeInfoForToken",
     [tokenId, address]
   );
+
+  const handleClaimRewards = async (contract: SmartContract<BaseContract>) => {
+    onBusy(true);
+    await contract.call("claimRewards", [tokenId]);
+  };
 
   useEffect(() => {
     if (!stakingContract || !address) return;
@@ -69,14 +78,19 @@ const WorkShopCard = ({ tokenId }: Props) => {
             <span>Qty: {workShopRewards[0].toNumber()}</span>
           )}
           {claimableRewards && (
-            <span>Earnings: {truncateRevenue(claimableRewards as BigNumber)}</span>
+            <span>
+              Earnings: {truncateRevenue(claimableRewards as BigNumber)}
+            </span>
           )}
         </div>
       </div>
       <Web3Button
         contractAddress={STAKING_CONTRACT_ADDRESS}
-        action={(contract) => contract.call("claimRewards", [tokenId])}
-        onSuccess={() => alert("Earnings Claimed!!")}
+        action={(contract) => handleClaimRewards(contract)}
+        onSuccess={() => {
+          onBusy(false);
+          claimEarnings();
+        }}
         className={styles.nftCardButton}
       >
         Claim Earnings
