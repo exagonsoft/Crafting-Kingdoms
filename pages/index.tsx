@@ -6,6 +6,10 @@ import { useEffect } from "react";
 import { getUser } from "./api/auth/[...thirdweb]";
 import Lord from "../components/Lord";
 import WorkShops from "../components/WorkShops";
+import React from "react";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import MainWrapper from "../containers/MainWrapper";
 
 const Home: NextPage = () => {
   const { isLoggedIn, isLoading } = useUser();
@@ -18,10 +22,10 @@ const Home: NextPage = () => {
   }, [isLoggedIn, isLoading, router]);
 
   return (
-    <div className={styles.layout_container}>
+    <MainWrapper>
       <Lord />
       <WorkShops />
-    </div>
+    </MainWrapper>
   );
 };
 

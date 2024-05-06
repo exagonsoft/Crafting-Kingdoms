@@ -1,14 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: 'CustomFont';
+  src: url('../styles//fonts/Enchanted\ Land.otf') format('truetype');
+  /* Add other font properties as needed */
+}
+
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  scrollbar-width: 0;
+     padding: 0;
+    margin: 0;
+    scrollbar-width: 0;
+    font-family: 'CustomFont', sans-serif;
+    color: rgb(10, 10, 10);
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    font-weight: normal;
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
   width: 0;
 }
@@ -27,21 +37,22 @@ a {
   box-sizing: border-box;
 }
 
-body {
-  color: #e7e8e8;
-  background: #070707;
+span {
+  display: flex;
+  align-items: center;
+  gap: .2rem;
 }
 
-.half_width{
+.half_width {
   width: 50%;
 }
 
-.card_images{
+.card_images {
   border-radius: 10px;
   margin: 10px 10px;
 }
 
-.card_text{
+.card_text {
   font-weight: bold;
 }
 
@@ -52,3 +63,100 @@ body {
   align-items: flex-start;
 }
 
+/***************** LOADERS *******************/
+
+.loading-animation {
+  position: relative;
+  width: 60%;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.loading-hexagon {
+  position: absolute;
+  left: calc(20%);
+  top: 50%;
+  width: 5%;
+  height: 5%;
+}
+
+.loading-hexagon:nth-child(2) {
+  left: calc(40%);
+  /* Adjust horizontal positioning */
+}
+
+.loading-hexagon:nth-child(3) {
+  left: calc(60%);
+  /* Adjust horizontal positioning */
+}
+
+.loading-hexagon:nth-child(4) {
+  left: calc(80%);
+  /* Adjust horizontal positioning */
+}
+
+/* Add more .loading-hexagon:nth-child() rules for additional hexagons */
+
+.loading-hexagon::before,
+.loading-hexagon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  animation: rotateHex 4s linear infinite;
+  background: url(/images/spiner.png);
+  background-size: cover;
+}
+
+.loading-hexagon::before {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.loading-hexagon::after {
+  transform: translate(-50%, -50%) rotate(60deg);
+}
+
+.loading-hexagon::before,
+.loading-hexagon::after,
+.loading-hexagon .line {
+  animation-fill-mode: forwards;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.loading-hexagon .line {
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  box-shadow: 0 0 2px #47dffa, 0 0 4px #3bc0d8;
+  /* Light gray line color */
+  animation: drawLine 1.5s ease-in-out alternate-reverse infinite;
+  left: -200%;
+}
+
+@keyframes rotateHex {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes drawLine {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 50px;
+  }
+
+  100% {
+    width: 0;
+  }
+}

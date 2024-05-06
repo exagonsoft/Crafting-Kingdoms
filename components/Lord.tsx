@@ -11,6 +11,7 @@ import {
   TOKEN_CONTRACT_ADDRESS,
 } from "../constants/contracts";
 import styles from "../styles/Home.module.css";
+import LoadingAnimation from "./LoadingAnimator";
 
 const Lord = () => {
   const address = useAddress();
@@ -27,7 +28,7 @@ const Lord = () => {
   };
 
   return (
-    <div className={styles.third_with}>
+    <div className={loadingLord ? styles.worker_loading_container : styles.third_with}>
       {!loadingLord ? (
         ownedLord &&
         ownedLord.length > 0 &&
@@ -52,7 +53,7 @@ const Lord = () => {
           </div>
         ))
       ) : (
-        <img src="/images/loading.gif" alt="" className={styles.loading_image} />
+        <LoadingAnimation />
       )}
     </div>
   );

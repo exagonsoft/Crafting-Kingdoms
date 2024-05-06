@@ -64,22 +64,43 @@ const RealmWorkShopCard = ({ building }: Props) => {
 
   return (
     <div className={styles.nftCard}>
-      <MediaRenderer src={building.metadata.image} className={styles.nft_card_images}/>
+      <div className={styles.nft_card_ui}></div>
+      <MediaRenderer
+        src={building.metadata.image}
+        className={styles.nft_card_images}
+      />
       <div className={styles.building_texts}>
         <h4>{building.metadata.name}</h4>
         {claimConditions &&
           claimConditions.length > 0 &&
           claimConditions.map((condition, index) => (
-            <div key={index} className="">
-              <p>
-                Cost: {toEther(condition.price)}{" "}
-                {condition.currencyMetadata.symbol}
-              </p>
-              <p>
-                Earns:{" "}
-                {calculateBuildingEarnings(parseInt(toEther(condition.price)))}{" "}
-                {condition.currencyMetadata.symbol}/hour
-              </p>
+            <div key={index} className={styles.building_texts_info_wrapper}>
+              <div className={styles.building_texts_info_container}>
+                <div className="">
+                  <span>Cost: </span>
+                </div>
+                <div className="">
+                  <span>
+                    {toEther(condition.price)}{" "}
+                    <img src="/images/coin.png" alt="" className={styles.coin_image}/>
+                    {condition.currencyMetadata.symbol}
+                  </span>
+                </div>
+              </div>
+              <div className={styles.building_texts_info_container}>
+                <div className="">
+                  <span>Earns /hour:</span>
+                </div>
+                <div className="">
+                  <span>
+                    {calculateBuildingEarnings(
+                      parseInt(toEther(condition.price))
+                    )}{" "}
+                    <img src="/images/coin.png" alt="" className={styles.coin_image}/>
+                    {condition.currencyMetadata.symbol}
+                  </span>
+                </div>
+              </div>
             </div>
           ))}
       </div>

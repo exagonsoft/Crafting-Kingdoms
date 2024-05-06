@@ -105,6 +105,12 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  border-radius: 9px;
+  min-height: 28rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .loading_image {
@@ -112,7 +118,6 @@
   height: 20rem;
   align-self: center;
   opacity: 1;
-  border-radius: 500%;
 }
 
 .card {
@@ -208,6 +213,12 @@
   justify-content: center;
 }
 
+.coin_image {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
 .section_title {
   width: 100%;
   display: flex;
@@ -216,27 +227,55 @@
   margin-bottom: 4rem;
 }
 
+.main_view_box {
+  width: 100%;
+}
+
 .layout_container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 2rem;
+  flex-direction: column;
+}
+
+.main_layout_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 8rem 0;
+}
+
+.workshops_layout_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .card_images {
   border-radius: 10px;
   width: 120px !important;
   height: 120px !important;
+  border: 3px outset #efa92799;
+  box-shadow: inset #b3751de3 4px 5px 6px 3px;
 }
 
 .nft_card_images {
   object-fit: fill !important;
-  width: 100% !important;
+  position: absolute;
+  z-index: 60;
+  top: 0.9rem;
+  height: 100%;
+  min-height: 28rem;
+  width: 94% !important;
+  left: 3%;
 }
 
 .card_text {
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .card_text_container {
@@ -262,6 +301,20 @@
   align-items: center;
   justify-self: center;
   gap: 4rem;
+  background-color: #1a1a1a17;
+  background-image: radial-gradient(circle, #6c3483 20%, #1a1a1a 80%), radial-gradient(circle, #27ae60 20%, #1a1a1a 80%);
+  background-blend-mode: overlay;
+  background-size: 150% 150%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow: auto;
+  scrollbar-width: 0;
+}
+
+.main_layout::-webkit-scrollbar {
+  display: none;
+  width: 0;
 }
 
 .main_container {
@@ -269,12 +322,13 @@
   margin-top: 4rem;
 }
 
+
 .logo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .logo>span:nth-child(1) {
@@ -325,17 +379,14 @@
   left: 8rem;
   right: 8rem;
   background: rgba(255, 255, 255, 0.15);
-  /* Translucent white background */
   backdrop-filter: blur(10px);
-  /* Blur effect */
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  /* Transparent white border */
   overflow: hidden;
-  /* Clip content inside the div */
   margin-top: .4rem;
   backdrop-filter: blur(10px) saturate(150%);
   transition: transform 0.5s ease;
+  z-index: 100;
 }
 
 .navbarOptions {
@@ -352,7 +403,7 @@
   gap: .5rem;
   margin: 0;
   font-size: 0.9 rem;
-  font-weight: bold;
+  font-weight: 300;
   color: white;
   cursor: pointer;
   transition: color 0.3s;
@@ -374,7 +425,7 @@
 .navbarOptions a {
   margin: 0;
   font-size: 0.9 rem;
-  font-weight: bold;
+  font-weight: 300;
   color: #54e21c;
   text-shadow: 0 0 2px #63fc26b9, 0 0 4px #63fc26b9;
   cursor: pointer;
@@ -431,10 +482,25 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-  background-color: #131313;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 2rem;
   border-radius: 10px;
   margin: 10px;
+}
+
+.worker_loading_container {
+  margin-top: .5rem;
+  display: flex;
+  width: 33%;
+  justify-content: center;
+  align-items: center;
+  min-height: 14rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
 }
 
 .workerContainer div {
@@ -446,19 +512,72 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  background-color: #131313;
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
   margin: 10px;
   width: 60%;
 }
 
 .building_texts {
-  padding: 0 1rem;
+  padding: 1rem 1rem 4rem 1rem;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 70;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.building_texts>h4 {
+  display: flex;
+  padding: 0.4rem 2rem;
+  background: linear-gradient(355deg, #fbedd29e, #d1ab8d99);
+  border-radius: 9px;
+  margin-block: 0;
+  box-shadow: inset -1px -4px 4px 0px;
+  min-width: 80%;
+  margin-top: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.building_texts_info_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: .5rem 1rem;
+}
+
+.building_texts_info_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(355deg, #fbedd29e, #d1ab8d99);
+  box-shadow: inset -1px -4px 4px 0px;
+  border-radius: 9px;
+  padding: .2rem .5rem;
+}
+
+.owned_buildings_text_info_container {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(355deg, #fbedd29e, #d1ab8d99);
+  border-radius: 0px 0 9px 9px;
+  margin-block: 0;
+  box-shadow: inset -1px -4px 4px 0px;
 }
 
 .nftCard {
-  background-color: #131313;
   border-radius: 10px;
   max-width: 440px;
   overflow: hidden;
@@ -467,18 +586,26 @@
   justify-content: space-between;
   justify-items: center;
   align-items: flex-start;
-  min-height: 28rem;
+  min-height: 30rem;
+  min-width: 300px;
+  position: relative;
 }
 
 .nftCardButton {
-  width: 100% !important;
+  width: fit-content !important;
   padding: 0.5rem !important;
-  border-radius: 0px 0px 5px 5px !important;
-  border: none !important;
-  background-color: royalblue !important;
+  border-radius: 20px !important;
+  border: 3px double !important;
+  background: linear-gradient(176deg, #f1a61e, #533d0e) !important;
   color: white !important;
   cursor: pointer !important;
   transition: background-color 0.3s !important;
+  position: absolute !important;
+  bottom: 0.9rem !important;
+  left: 25% !important;
+  min-width: 50% !important;
+  min-height: 9% !important;
+  z-index: 95 !important;
 }
 
 .nftCardButton:hover {
@@ -496,6 +623,9 @@
   padding: 1rem 2rem;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 .glassmorphism {
@@ -522,16 +652,34 @@
 }
 
 .neon-text {
-  color: #00FFFF; /* Light blue color */
-  text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF, 0 0 150px #00FFFF; /* Neon glow effect */
-  animation: neon-animation 1.5s ease-in-out infinite alternate; /* Neon animation */
+  color: #00FFFF;
+  /* Light blue color */
+  text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF, 0 0 150px #00FFFF;
+  /* Neon glow effect */
+  animation: neon-animation 1.5s ease-in-out infinite alternate;
+  /* Neon animation */
 }
 
 @keyframes neon-animation {
   from {
-      text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF, 0 0 150px #00FFFF; /* Neon glow effect */
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF, 0 0 150px #00FFFF;
+    /* Neon glow effect */
   }
+
   to {
-      text-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF, 0 0 150px #00FFFF, 0 0 300px #00FFFF; /* Neon glow effect */
+    text-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 70px #00FFFF, 0 0 80px #00FFFF, 0 0 100px #00FFFF, 0 0 150px #00FFFF, 0 0 300px #00FFFF;
+    /* Neon glow effect */
   }
+}
+
+/************** UI STYLES **********************/
+
+.nft_card_ui {
+  background: url("/images/building_card_bg.png");
+  width: 100%;
+  height: 100%;
+  min-height: 28rem;
+  position: absolute;
+  background-repeat: round;
+  z-index: 92;
 }
