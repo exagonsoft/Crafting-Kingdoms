@@ -179,7 +179,7 @@ span {
   align-items: center;
 }
 
-.dialog_blur{
+.dialog_blur {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -187,7 +187,7 @@ span {
   z-index: 115;
 }
 
-.dialog_form{
+.dialog_form {
   position: relative;
   padding: 1rem 2rem;
   border-radius: 10px;
@@ -205,7 +205,7 @@ span {
   min-width: 20%;
 }
 
-.busy_form{
+.busy_form {
   position: relative;
   padding: 1rem 2rem;
   border-radius: 10px;
@@ -223,20 +223,20 @@ span {
   min-width: 40%;
 }
 
-.dialog_form_icon{
+.dialog_form_icon {
   width: 80px;
   height: 80px;
   border-radius: 50%;
 }
 
-.dialog_form_buttons_container{
+.dialog_form_buttons_container {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.dialog_form_buttom{
+.dialog_form_buttom {
   width: fit-content !important;
   padding: 0.5rem !important;
   border-radius: 20px !important;
@@ -249,6 +249,30 @@ span {
   min-height: 9% !important;
 }
 
-.dialog_form_buttom:hover{
+.dialog_form_buttom:hover {
   box-shadow: 4px 4px 10px;
+}
+
+.web3_component {
+  all: unset;
+  background: hsl(230deg 11.63% 8.43%);
+  border: 1px solid hsl(230deg 11.63% 17%);
+  padding: 12px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 180px;
+  gap: 12px;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  line-height: normal;
+  -webkit-animation: animation-plwpox 300ms ease;
+  animation: animation-plwpox 300ms ease;
 }
