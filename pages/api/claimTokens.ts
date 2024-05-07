@@ -4,7 +4,6 @@ import {
   LORD_CONTRACT_ADDRESS,
   TOKEN_CONTRACT_ADDRESS,
 } from "../../constants/contracts";
-import { Sepolia } from "@thirdweb-dev/chains";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
@@ -37,8 +36,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       url: THIRDWEB_ENGINE_URL,
       accessToken: THIRDWEB_ENGINE_ACCESSTOKEN,
     });
+    
 
     console.log(`ENGINE INITIALIZED. Try to claim Lord NFT to ${address}`);
+
 
     const _claimLord = await engine.erc721.claimTo(
       "sepolia",

@@ -26,6 +26,7 @@ type Props = {
 const WorkShopCard = ({ tokenId, claimEarnings, onBusy }: Props) => {
   const address = useAddress();
   const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
+  const [buildingNumbers, setBuildingNumbers] = useState(0);
   const { contract: workShopContract } = useContract(
     BUILDINGS_CONTRACT_ADDRESS
   );
@@ -58,6 +59,12 @@ const WorkShopCard = ({ tokenId, claimEarnings, onBusy }: Props) => {
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    if (workShopRewards && workShopRewards[1].gt(0)) {
+      setBuildingNumbers(workShopRewards[0].toNumber());
+    }
+  }, [workShopRewards]);
+
   const truncateRevenue = (revenue: BigNumber) => {
     const convertToEther = toEther(revenue);
     const truncateValue = convertToEther.toString().slice(0, 6);
@@ -74,9 +81,9 @@ const WorkShopCard = ({ tokenId, claimEarnings, onBusy }: Props) => {
       <div className={styles.building_texts}>
         <h4>{workShopNft?.metadata.name}</h4>
         <div className={styles.owned_buildings_text_info_container}>
-          {workShopRewards && workShopRewards[1].gt(0) && (
-            <span>Qty: {workShopRewards[0].toNumber()}</span>
-          )}
+          <span>
+            Qty: {buildingNumbers > 0 ? buildingNumbers : 0}
+          </span>
           {claimableRewards && (
             <span>
               Earnings: {truncateRevenue(claimableRewards as BigNumber)}

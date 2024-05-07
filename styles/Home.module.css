@@ -535,10 +535,9 @@
 .building_texts>h4 {
   display: flex;
   padding: 0.4rem 2rem;
-  background: linear-gradient(355deg, #fbedd29e, #d1ab8d99);
+  background: linear-gradient(355deg, #e0f2fede, #e0f2fe);
   border-radius: 9px;
   margin-block: 0;
-  box-shadow: inset -1px -4px 4px 0px;
   min-width: 80%;
   margin-top: 0.5rem;
   justify-content: center;
@@ -559,8 +558,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(355deg, #fbedd29e, #d1ab8d99);
-  box-shadow: inset -1px -4px 4px 0px;
+  background: linear-gradient(355deg, #e0f2fede, #e0f2fe);
   border-radius: 9px;
   padding: .2rem .5rem;
 }
@@ -570,10 +568,9 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(355deg, #fbedd29e, #d1ab8d99);
+  background: linear-gradient(355deg, #e0f2fede, #e0f2fe);
   border-radius: 0px 0 9px 9px;
   margin-block: 0;
-  box-shadow: inset -1px -4px 4px 0px;
   min-height: 4.4rem;
 }
 

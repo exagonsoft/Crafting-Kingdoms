@@ -254,25 +254,26 @@ span {
 }
 
 .web3_component {
-  all: unset;
-  background: hsl(230deg 11.63% 8.43%);
-  border: 1px solid hsl(230deg 11.63% 17%);
-  padding: 12px 12px;
-  border-radius: 12px;
-  cursor: pointer;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  min-width: 180px;
-  gap: 12px;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  line-height: normal;
-  -webkit-animation: animation-plwpox 300ms ease;
-  animation: animation-plwpox 300ms ease;
+  all: unset !important;
+  background: hsl(230deg 11.63% 8.43%) !important;
+  border: 1px solid hsl(230deg 11.63% 17%) !important;
+  padding: 12px 12px !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  display: -webkit-inline-box !important;
+  display: -webkit-inline-flex !important;
+  display: -ms-inline-flexbox !important;
+  display: inline-flex !important;
+  -webkit-align-items: center !important;
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  min-width: 180px !important;
+  gap: 12px !important;
+  box-sizing: border-box !important;
+  -webkit-tap-highlight-color: transparent !important;
+  line-height: normal !important;
+  -webkit-animation: animation-plwpox 300ms ease !important;
+  animation: animation-plwpox 300ms ease !important;
+  color: white !important;
 }

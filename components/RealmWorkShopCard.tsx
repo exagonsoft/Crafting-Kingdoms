@@ -39,7 +39,7 @@ const RealmWorkShopCard = ({ building, showDialog, setIsBusy }: Props) => {
   );
 
   const calculateBuildingEarnings = (cost: number) => {
-    return cost * 0.1;
+    return cost * 0.01;
   };
 
   const handleClaim = async () => {
@@ -113,7 +113,7 @@ const RealmWorkShopCard = ({ building, showDialog, setIsBusy }: Props) => {
               </div>
               <div className={styles.building_texts_info_container}>
                 <div className="">
-                  <span>Earns /hour:</span>
+                  <span>Earns /h:</span>
                 </div>
                 <div className="">
                   <span>
