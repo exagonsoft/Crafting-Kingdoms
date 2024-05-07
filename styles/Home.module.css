@@ -10,6 +10,22 @@
   min-height: 90vh;
 }
 
+.loading_titled_container{
+  min-width: 40%;
+  max-width: 800px;
+  padding: 0 1rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin: auto;
+}
+
 .main {
   max-width: 1440px;
   padding: 5rem 0;
