@@ -12,6 +12,7 @@ import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 import { getUser } from "./api/auth/[...thirdweb]";
 import { LORD_CONTRACT_ADDRESS } from "../constants/contracts";
+import LoadingAnimation from "../components/LoadingAnimator";
 
 const logingOptional = false;
 
@@ -78,8 +79,9 @@ const Login = () => {
 
   if (loadingLordStatus) {
     return (
-      <div className={styles.container}>
+      <div className={styles.loading_titled_container}>
         <h1 className="">{loadingMessage}</h1>
+        <LoadingAnimation />
       </div>
     );
   }
