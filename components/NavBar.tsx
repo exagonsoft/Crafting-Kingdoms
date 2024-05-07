@@ -10,7 +10,6 @@ import React, { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import {
-  ACCOUNT_FACTORY_CONTRACT_ADDRESS,
   TOKEN_CONTRACT_ADDRESS,
 } from "../constants/contracts";
 import { useRouter } from "next/router";
@@ -34,12 +33,11 @@ const NavBar = () => {
   }, [isLoggedIn, isLoading, router]);
 
   useEffect(() => {
-    console.log({isLoggedIn, isLoading, showConnectEmbed});
-    
-    if((isLoggedIn && showConnectEmbed) || !isLoggedIn){
+    if(isLoggedIn && showConnectEmbed){
+      console.log({isLoggedIn, isLoading, showConnectEmbed});
       router.push("/login");
     }
-  }, [showConnectEmbed, isLoading]);
+  }, [showConnectEmbed, isLoggedIn]);
 
   return (
     <div className={styles.full_with}>

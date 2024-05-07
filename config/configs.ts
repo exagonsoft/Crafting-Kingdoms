@@ -3,8 +3,8 @@ export const getEnvironment = () => {
     process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID || "";
   const THIRDWEB_API_SECRET_KEY = process.env.THIRDWEB_API_SECRET_KEY || "";
   const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x5b0b4c9fd1ffc668ca18c153df80aee4ba7c510c245c9107ae16dbf35fd039f6";
-  const DOMAIN = process.env.DOMAIN || "localhost:3000";
-  const FACTORY_ADDRESS = process.env.FACTORY_ADDRESS || "0x1189f57587C17beFDdC39284911746305D619B0b";
+  const DOMAIN = process.env.DOMAIN || "https://localhost";
+  const FACTORY_ADDRESS = process.env.FACTORY_ADDRESS || "0x4227171B7230B3cC220D69F49491cc816446dD85";
   const ENCRYPTION_PASSWORD = process.env.ENCRYPTION_PASSWORD || "";
   const THIRDWEB_ENGINE_URL = process.env.THIRDWEB_ENGINE_URL || "";
   const THIRDWEB_ENGINE_ACCESSTOKEN =
