@@ -691,8 +691,15 @@
 }
 
 .footer_powered_img{
-  width: 60px;
-  height: 60px;
+  width: 25px;
+  height: 25px;
+}
+
+.footer_powered_container{
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  margin-top: .5rem;
 }
 
 .glassmorphism {
