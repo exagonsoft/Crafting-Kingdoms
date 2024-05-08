@@ -86,7 +86,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(200).json({ message: "Lord NFT and Tokens claimed" });
   } catch (error) {
     console.log("🚨 Error: ", error);
-    return res.status(500).json({ message: "Error claiming tokens", error: error });
+    return res.status(500).json({ message: "Error claiming tokens", error: JSON.stringify(error) });
   }
 };
 
