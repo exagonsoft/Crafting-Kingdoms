@@ -6,7 +6,7 @@ export const getEnvironment = () => {
   const DOMAIN = process.env.DOMAIN || "https://localhost";
   const FACTORY_ADDRESS = process.env.FACTORY_ADDRESS || "0x4227171B7230B3cC220D69F49491cc816446dD85";
   const ENCRYPTION_PASSWORD = process.env.ENCRYPTION_PASSWORD || "";
-  const THIRDWEB_ENGINE_URL = process.env.THIRDWEB_ENGINE_URL || "";
+  const THIRDWEB_ENGINE_URL = 'https://ec2-52-23-246-237.compute-1.amazonaws.com:3005';
   const THIRDWEB_ENGINE_ACCESSTOKEN =
     process.env.THIRDWEB_ENGINE_ACCESSTOKEN || "";
   const THIRDWEB_ENGINE_WALLET = process.env.THIRDWEB_ENGINE_WALLET || "";

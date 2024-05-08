@@ -4,6 +4,7 @@ import {
   LORD_CONTRACT_ADDRESS,
   TOKEN_CONTRACT_ADDRESS,
 } from "../../constants/contracts";
+import { getEnvironment } from "../../config/configs";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
@@ -12,8 +13,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
+  const THIRDWEB_ENGINE_URL = getEnvironment().THIRDWEB_ENGINE_URL;
+
   const {
-    THIRDWEB_ENGINE_URL,
     THIRDWEB_ENGINE_ACCESSTOKEN,
     THIRDWEB_ENGINE_WALLET,
   } = process.env;
