@@ -268,6 +268,7 @@ span {
   -webkit-box-align: center !important;
   -ms-flex-align: center !important;
   align-items: center !important;
+  justify-content: center !important;
   min-width: 180px !important;
   gap: 12px !important;
   box-sizing: border-box !important;

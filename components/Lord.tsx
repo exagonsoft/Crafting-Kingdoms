@@ -28,27 +28,31 @@ const Lord = () => {
   };
 
   return (
-    <div className={loadingLord ? styles.worker_loading_container : styles.third_with}>
+    <div
+      className={
+        loadingLord ? styles.worker_loading_container : styles.third_with
+      }
+    >
       {!loadingLord ? (
         ownedLord &&
         ownedLord.length > 0 &&
         ownedLord.map((lord) => (
           <div key={lord.metadata.id} className={styles.workerContainer}>
-            <div className="">
-              <h3 className="">Kingdom Stats:</h3>
+            <span className={styles.worker_container_title}>Kingdom Overall:</span>
+            <div className={styles.worker_container_header}>
               <MediaRenderer
                 src={lord.metadata.image}
                 className={styles.card_images}
               />
-            </div>
-            <div className={styles.card_text_container}>
-              <p className={styles.card_text}>{`${lord.metadata.name}`}</p>
-              {tokenBalance && (
-                <p className="">{`Balance: ${_displayBalance(
-                  tokenBalance.displayValue as string
-                )} ${tokenBalance.symbol}`}</p>
-              )}
-              <p className={styles.card_text}>{`Kingdom Towns: 1`}</p>
+              <div className={styles.card_text_container}>
+                <p className={styles.card_text}>{`${lord.metadata.name}`}</p>
+                {tokenBalance && (
+                  <p className="">{`Balance: ${_displayBalance(
+                    tokenBalance.displayValue as string
+                  )} ${tokenBalance.symbol}`}</p>
+                )}
+                <p className={styles.card_text}>{`Kingdom Towns: 1`}</p>
+              </div>
             </div>
           </div>
         ))
