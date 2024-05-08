@@ -4,12 +4,11 @@ import {
   smartWallet,
   ThirdwebProvider,
 } from "@thirdweb-dev/react";
+import Head from "next/head";
 import "../styles/globals.css";
 import { Sepolia } from "@thirdweb-dev/chains";
 import { getEnvironment } from "../config/configs";
-import NavBar from "../components/NavBar";
 import styles from "../styles/Home.module.css";
-import Footer from "../components/Footer";
 import React from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -28,6 +27,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         authUrl: "/api/auth",
       }}
     >
+      <Head>
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <div className={styles.main_layout}>
         <Component {...pageProps} />
       </div>

@@ -14,11 +14,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
   const THIRDWEB_ENGINE_URL = getEnvironment().THIRDWEB_ENGINE_URL;
-
-  const {
-    THIRDWEB_ENGINE_ACCESSTOKEN,
-    THIRDWEB_ENGINE_WALLET,
-  } = process.env;
+  const THIRDWEB_ENGINE_ACCESSTOKEN = getEnvironment().THIRDWEB_ENGINE_ACCESSTOKEN;
+  const THIRDWEB_ENGINE_WALLET = getEnvironment().THIRDWEB_ENGINE_WALLET;
 
   try {
     if (
