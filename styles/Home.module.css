@@ -570,13 +570,13 @@
 
 @keyframes coinLeft {
   0% {
-    margin-right: 0;
+    margin-right: -.5rem;
     transform: rotate(0deg) scale(0);
     opacity: 0;
   }
 
   10% {
-    margin-right: .5rem;
+    margin-right: 0rem;
     transform: rotate(-45deg) scale(.1);
     opacity: 1;
   }
