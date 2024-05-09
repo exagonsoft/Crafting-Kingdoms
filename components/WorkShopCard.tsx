@@ -72,24 +72,26 @@ const WorkShopCard = ({ tokenId, claimEarnings, onBusy }: Props) => {
   };
 
   return (
-    <div className={styles.nftCard}>
-      <div className={styles.nft_card_ui}></div>
+    <div className={styles.nftHomeCard}>
+      <div className={styles.nft_owned_card_ui}></div>
       <MediaRenderer
         src={workShopNft?.metadata.image}
-        className={styles.nft_card_images}
+        className={styles.owned_nft_card_image}
       />
       <div className={styles.building_texts}>
         <h4>{workShopNft?.metadata.name}</h4>
         <div className={styles.owned_buildings_text_info_container}>
           <span>
-            Qty: {buildingNumbers > 0 ? buildingNumbers : 0}
+            Earnings:{" "}
+            {claimableRewards
+              ? truncateRevenue(claimableRewards as BigNumber)
+              : ""}
           </span>
-          {claimableRewards && (
-            <span>
-              Earnings: {truncateRevenue(claimableRewards as BigNumber)}
-            </span>
-          )}
+          <img src="/images/coin.png" alt="" className="" />
         </div>
+      </div>
+      <div className={styles.nftHomeCardButton_jewel}>
+        <span>{buildingNumbers > 0 ? buildingNumbers : 0}</span>
       </div>
       <Web3Button
         contractAddress={STAKING_CONTRACT_ADDRESS}
@@ -98,7 +100,7 @@ const WorkShopCard = ({ tokenId, claimEarnings, onBusy }: Props) => {
           onBusy(false);
           claimEarnings();
         }}
-        className={styles.nftCardButton}
+        className={styles.nftHomeCardButton}
       >
         Claim Earnings
       </Web3Button>

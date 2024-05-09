@@ -10,7 +10,7 @@ const Footer = () => {
         <div className={styles.footer_container}>
           <div className="">
             <span style={{fontSize:'1.2rem', fontWeight:'bold'}}>Powered By</span>
-            <hr className="" style={{width:'80%', display:'flex', margin:'0 0 .3rem 0'}}/>
+            <hr className="" style={{width:'50%', display:'flex', margin:'0 0 .3rem 0'}}/>
             <div className={styles.footer_powered_container}>
               <span className=""><img src="/images/exagon_soft_logo.png" alt="" className={styles.footer_powered_img} />EXAGON-SOFT</span>
               <span className=""><img src="/images/third_web_logo.png" alt="" className={styles.footer_powered_img} />THIRDWEB</span>
