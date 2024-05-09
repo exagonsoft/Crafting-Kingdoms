@@ -29,6 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     >
       <Head>
         <link rel="icon" href="/favicon.png" />
+        <title>Crafting Kingdoms</title>
       </Head>
       <div className={styles.main_layout}>
         <Component {...pageProps} />

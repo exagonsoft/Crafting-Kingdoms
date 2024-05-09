@@ -7,12 +7,15 @@ import {
   useUser,
 } from "@thirdweb-dev/react";
 import React, { useEffect } from "react";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/NavBar.module.css";
 import Link from "next/link";
 import {
   TOKEN_CONTRACT_ADDRESS,
 } from "../constants/contracts";
 import { useRouter } from "next/router";
+import { FaBuilding, FaCity, FaMap } from "react-icons/fa6";
+import { MdHome, MdVilla } from "react-icons/md";
+import { FaBalanceScale } from "react-icons/fa";
 
 const NavBar = () => {
   const address = useAddress();
@@ -44,7 +47,7 @@ const NavBar = () => {
       {isLoggedIn && (
         <div className={styles.navbarContainer}>
           <Link href="/">
-            <div className={styles.headers}>
+            <div className={styles.navbar_header}>
               <img src="/images/logo.png" alt="" />
               <div className={styles.logo}>
                 <span>CRAFTING</span>
@@ -53,11 +56,14 @@ const NavBar = () => {
             </div>
           </Link>
           <div className={styles.navbarOptions}>
+          <Link href="/world_map">
+              <span className={styles.navbar_links}><FaMap/>World Map</span>
+            </Link>
             <Link href="/realm_workshops">
-              <h3>Realm WorkShops</h3>
+              <span className={styles.navbar_links}><MdHome/> Buildings</span>
             </Link>
             <Link href="/realm_marketplace">
-              <h3>Marketplace</h3>
+              <span className={styles.navbar_links}><FaBalanceScale/> Marketplace</span>
             </Link>
           </div>
           <div className={styles.navbarOptions}>

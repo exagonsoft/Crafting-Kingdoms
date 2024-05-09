@@ -10,7 +10,7 @@
   min-height: 90vh;
 }
 
-.loading_titled_container{
+.loading_titled_container {
   min-width: 40%;
   max-width: 800px;
   padding: 0 1rem;
@@ -291,6 +291,17 @@
   left: 3%;
 }
 
+.owned_nft_card_image {
+  object-fit: fill !important;
+  position: absolute;
+  z-index: 60;
+  top: 0.9rem;
+  height: 100% !important;
+  max-height: 21rem;
+  width: 94% !important;
+  left: 3%;
+}
+
 .card_text {
   font-weight: 300;
 }
@@ -383,82 +394,7 @@
   border-radius: 50%;
 }
 
-.navbarContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  position: fixed;
-  left: 8rem;
-  right: 8rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  overflow: hidden;
-  margin-top: .4rem;
-  backdrop-filter: blur(10px) saturate(150%);
-  transition: transform 0.5s ease;
-  z-index: 100;
-}
 
-.navbarOptions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-
-
-.navbarOptions p {
-  display: flex;
-  gap: .5rem;
-  margin: 0;
-  font-size: 0.9 rem;
-  font-weight: 300;
-  color: white;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.navbarOptions>p>div {
-  display: flex;
-  gap: .2rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbarOptions>p>div>img {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-}
-
-.navbarOptions a {
-  margin: 0;
-  font-size: 0.9 rem;
-  font-weight: 300;
-  cursor: pointer;
-}
-
-
-.navbarLogoutButton {
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  border: none;
-  background-color: crimson;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.navbarLogoutButton:hover {
-  background-color: #ff6b6b;
-}
 
 .signinContainer {
   display: flex;
@@ -507,7 +443,7 @@
   min-height: 40rem;
 }
 
-.worker_container_title{
+.worker_container_title {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -517,7 +453,7 @@
   margin-top: 1rem;
 }
 
-.worker_container_header{
+.worker_container_header {
   width: 100%;
   display: flex;
   gap: 1rem;
@@ -540,6 +476,13 @@
   margin: 0 1rem;
 }
 
+.business_section {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .businessContainer {
   display: flex;
   justify-content: flex-start;
@@ -550,8 +493,8 @@
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 2rem;
-  margin: 10px;
-  width: 90%;
+  margin: 10px 0;
+  width: 100%;
 }
 
 .building_texts {
@@ -569,7 +512,7 @@
 .building_texts>h4 {
   display: flex;
   padding: 0.4rem 2rem;
-  background: linear-gradient(355deg, #e0f2fede, #e0f2fe);
+  background: linear-gradient(355deg, #2b2c2dde, #383a3b);
   border-radius: 9px;
   margin-block: 0;
   min-width: 80%;
@@ -592,20 +535,63 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(355deg, #e0f2fede, #e0f2fe);
+  background: linear-gradient(355deg, #2b2c2dde, #383a3b);
   border-radius: 9px;
   padding: .2rem .5rem;
 }
 
 .owned_buildings_text_info_container {
-  width: 100%;
-  padding: 1rem;
+  width: 80%;
+  padding: .5rem 1rem;
   display: flex;
-  flex-direction: column;
-  background: linear-gradient(355deg, #e0f2fede, #e0f2fe);
-  border-radius: 0px 0 9px 9px;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(355deg, #2b2c2dde, #383a3b);
+  border-radius: 9px;
   margin-block: 0;
-  min-height: 4.4rem;
+  margin: 0 2rem;
+}
+
+.owned_buildings_text_info_container>img {
+  width: 20px;
+  height: 20px;
+  animation: coinLeft 1s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes coinLeft {
+  0% {
+    margin-right: 0;
+    transform: rotate(0deg) scale(0);
+    opacity: 0;
+  }
+
+  10% {
+    margin-right: .5rem;
+    transform: rotate(-45deg) scale(.1);
+    opacity: 1;
+  }
+
+  90% {
+    margin-right: 3.2;
+    transform: rotate(-350deg) scale(.9);
+    opacity: 1;
+  }
+
+  100% {
+    margin-right: 3.5rem;
+    transform: rotate(-360deg) scale(1);
+    opacity: 0;
+  }
 }
 
 .nftCard {
@@ -620,7 +606,21 @@
   min-height: 30rem;
   min-width: 300px;
   position: relative;
-  box-shadow: 4px 4px 10px;
+  box-shadow: 4px 4px 10px #000000b8;
+}
+
+.nftHomeCard {
+  border-radius: 40px;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: flex-start;
+  min-height: 380px;
+  min-width: 300px;
+  position: relative;
+  box-shadow: 4px 4px 10px #000000b8;
 }
 
 .nftCardButton {
@@ -639,6 +639,41 @@
   min-height: 9% !important;
   z-index: 95 !important;
 }
+
+.nftHomeCardButton {
+  width: fit-content !important;
+  padding: 0.5rem !important;
+  border-radius: 20px !important;
+  border: 3px double !important;
+  background: linear-gradient(176deg, #f1a61e, #533d0e) !important;
+  color: white !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s !important;
+  position: absolute !important;
+  bottom: 1rem !important;
+  left: 25% !important;
+  min-width: 50% !important;
+  min-height: 9% !important;
+  z-index: 95 !important;
+}
+
+.nftHomeCardButton_jewel {
+  background: url(/images/card_info_jewel.png);
+  background-size: contain;
+  position: absolute;
+  top: -.5rem;
+  left: -.5rem;
+  z-index: 95;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
 
 .nftCardButton:hover {
   background-color: #3b82f6 !important;
@@ -665,7 +700,7 @@
   margin-bottom: .5rem;
 }
 
-.footer_container > div:nth-child(1) {
+.footer_container>div:nth-child(1) {
   width: 20%;
   display: flex;
   flex-direction: column;
@@ -674,7 +709,7 @@
   padding: 1rem;
 }
 
-.footer_container > div:nth-child(2) {
+.footer_container>div:nth-child(2) {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -682,7 +717,7 @@
   padding: 1rem;
 }
 
-.footer_container > div:nth-child(3) {
+.footer_container>div:nth-child(3) {
   width: 20%;
   display: flex;
   flex-direction: column;
@@ -690,12 +725,12 @@
   padding: 1rem;
 }
 
-.footer_powered_img{
+.footer_powered_img {
   width: 25px;
   height: 25px;
 }
 
-.footer_powered_container{
+.footer_powered_container {
   display: flex;
   flex-direction: column;
   gap: .2rem;
@@ -753,6 +788,15 @@
   width: 100%;
   height: 100%;
   min-height: 28rem;
+  position: absolute;
+  background-repeat: round;
+  z-index: 92;
+}
+
+.nft_owned_card_ui {
+  background: url("/images/owned_building_card_bg.png");
+  width: 100%;
+  height: 100%;
   position: absolute;
   background-repeat: round;
   z-index: 92;
