@@ -550,12 +550,21 @@
   border-radius: 9px;
   margin-block: 0;
   margin: 0 2rem;
+  position: relative;
 }
 
 .owned_buildings_text_info_container>img {
   width: 20px;
   height: 20px;
   animation: coinLeft 1s infinite linear;
+  position: absolute;
+  right: 0;
+  z-index: 15;
+}
+
+.owned_buildings_text_info_container>span{
+  position: relative;
+  z-index: 20;
 }
 
 @keyframes spin {
