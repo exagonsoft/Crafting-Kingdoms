@@ -19,6 +19,10 @@ body {
   font-weight: normal;
 }
 
+nextjs-portal{
+  display: none;
+}
+
 body::-webkit-scrollbar {
   display: none;
   width: 0;
