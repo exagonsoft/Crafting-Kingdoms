@@ -13,7 +13,6 @@
     backdrop-filter: blur(10px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    overflow: hidden;
     margin-top: .4rem;
     backdrop-filter: blur(10px) saturate(150%);
     transition: transform 0.5s ease;
@@ -74,6 +73,34 @@
     cursor: pointer;
 }
 
+.navbarOptions>div {
+    margin: 0;
+    font-size: 0.9 rem;
+    font-weight: 300;
+    cursor: pointer;
+    position: relative;
+    outline: 0;
+}
+
+.navbarOptions>div:hover {
+    color: #29f317;
+}
+
+.navbarOptions>div>div {
+    position: absolute;
+    z-index: 900;
+    top: 3rem;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 10px;
+    gap: .5rem;
+    background: rgba(24, 24, 24, 0.651);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 
 .navbarLogoutButton {
     padding: 0.5rem 1rem;
@@ -104,6 +131,6 @@
     min-width: 8rem;
 }
 
-.navbar_links:hover{
+.navbar_links:hover {
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.788);
 }

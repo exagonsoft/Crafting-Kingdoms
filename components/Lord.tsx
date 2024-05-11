@@ -5,16 +5,30 @@ import {
   useOwnedNFTs,
   useTokenBalance,
 } from "@thirdweb-dev/react";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   LORD_CONTRACT_ADDRESS,
   TOKEN_CONTRACT_ADDRESS,
 } from "../constants/contracts";
 import styles from "../styles/Home.module.css";
 import LoadingAnimation from "./LoadingAnimator";
+const OverallItem = ({ image, quantity, title }) => {
+  return (
+    <div className={styles.worker_item}>
+      <MediaRenderer src={image} className={styles.card_images} />
+      <div className={styles.worker_header_text}>
+        <span className={styles.card_text}>{`${title}`}</span>
+        <span className={styles.card_text}>{`Owned: ${quantity}`}</span>
+      </div>
+    </div>
+  );
+};
 
-const Lord = () => {
+
+
+const Lord = ({ kingdomData }) => {
   const address = useAddress();
+  
   const { contract: lordContract } = useContract(LORD_CONTRACT_ADDRESS);
   const { data: ownedLord, isLoading: loadingLord } = useOwnedNFTs(
     lordContract,
@@ -27,6 +41,9 @@ const Lord = () => {
     return num.slice(0, 4);
   };
 
+  useEffect(() => {
+  }, [kingdomData]);
+
   return (
     <div
       className={
@@ -38,21 +55,50 @@ const Lord = () => {
         ownedLord.length > 0 &&
         ownedLord.map((lord) => (
           <div key={lord.metadata.id} className={styles.workerContainer}>
-            <span className={styles.worker_container_title}>Kingdom Overall:</span>
+            <span className={styles.worker_container_title}>
+              Kingdom Overall:
+            </span>
             <div className={styles.worker_container_header}>
               <MediaRenderer
                 src={lord.metadata.image}
                 className={styles.card_images}
               />
-              <div className={styles.card_text_container}>
-                <p className={styles.card_text}>{`${lord.metadata.name}`}</p>
+              <div className={styles.worker_header_text}>
+                <span
+                  className={styles.card_text}
+                >{`${lord.metadata.name}`}</span>
                 {tokenBalance && (
-                  <p className="">{`Balance: ${_displayBalance(
+                  <span className="">{`Balance: ${_displayBalance(
                     tokenBalance.displayValue as string
-                  )} ${tokenBalance.symbol}`}</p>
+                  )} ${tokenBalance.symbol}`}</span>
                 )}
-                <p className={styles.card_text}>{`Kingdom Towns: 1`}</p>
+                <span>{`${kingdomData.tavern ? "✅" : "⛔"} City Tavern`}</span> 
+                <span>{`${kingdomData.magicTower ? "✅" : "⛔"} Magic Tower`}</span> 
+                <span>{`${kingdomData.swordManTower ? "✅" : "⛔"} Swordman Barrack`}</span> 
+                <span>{`${kingdomData.archersTower ? "✅" : "⛔"} Archers Trainer`}</span> 
               </div>
+            </div>
+            <div className={styles.worker_items_container}>
+              <OverallItem
+                image={"/images/city.png"}
+                title={"Economy Buildings"}
+                quantity={kingdomData.economyBuildings}
+              />
+              <OverallItem
+                image={"/images/outpost.png"}
+                title={"Military Buildings"}
+                quantity={kingdomData.militaryBuildings}
+              />
+              <OverallItem
+                image={"/images/hero.png"}
+                title={"Heroes"}
+                quantity={kingdomData.heroes}
+              />
+              <OverallItem
+                image={"/images/generic_item.png"}
+                title={"Items"}
+                quantity={kingdomData.items}
+              />
             </div>
           </div>
         ))

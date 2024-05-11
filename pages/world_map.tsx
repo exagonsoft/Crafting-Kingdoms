@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { getUser } from "./api/auth/[...thirdweb]";
 import MainWrapper from "../containers/MainWrapper";
+import styles from "../styles/WorldMap.module.css";
 
 const WorldMap = () => {
   const { isLoggedIn, isLoading } = useUser();
@@ -16,7 +17,12 @@ const WorldMap = () => {
 
   return (
     <MainWrapper>
-      <></>
+      <div className={styles.page_container}>
+        <h2 className={styles.section_title}>World Map</h2>
+        <div className={styles.world_map}>
+          <img src="/images/main_land.png" alt="Loading Map..." className="" />
+        </div>
+      </div>
     </MainWrapper>
   );
 };

@@ -21,9 +21,15 @@ type Props = {
   tokenId: number;
   claimEarnings;
   onBusy;
+  onPropertyChange;
 };
 
-const WorkShopCard = ({ tokenId, claimEarnings, onBusy }: Props) => {
+const WorkShopCard = ({
+  tokenId,
+  claimEarnings,
+  onBusy,
+  onPropertyChange,
+}: Props) => {
   const address = useAddress();
   const [claimableRewards, setClaimableRewards] = useState<BigNumber>();
   const [buildingNumbers, setBuildingNumbers] = useState(0);
@@ -64,6 +70,10 @@ const WorkShopCard = ({ tokenId, claimEarnings, onBusy }: Props) => {
       setBuildingNumbers(workShopRewards[0].toNumber());
     }
   }, [workShopRewards]);
+
+  useEffect(() => {
+    onPropertyChange(tokenId, buildingNumbers);
+  }, [buildingNumbers]);
 
   const truncateRevenue = (revenue: BigNumber) => {
     const convertToEther = toEther(revenue);
