@@ -1,0 +1,25 @@
+.page_container{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.world_map {
+    width: 100%;
+    height: max-content;
+    border-radius: 10px;
+    position: relative;
+}
+
+.world_map>img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 10px;
+    filter: blur(1px);
+}
